@@ -1,0 +1,13 @@
+server:
+  host: localhost
+  port: 9090
+
+rabbitmq:
+  host:
+  port:
+
+crypto:
+  # 秘钥
+  key: "1111111111111111"
+  # 偏移量
+  iv: "adlskjgityuhdijk"
