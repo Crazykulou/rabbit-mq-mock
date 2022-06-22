@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <script src="jsoneditor/dist/jsoneditor.min.js"></script>
     <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font: "courier new";
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: gray;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            padding: 1px;
+        }
+
+        textarea {
+            --margin: 1px;
+            width: 100%;
+            height: calc(100% - (var(--margin) *2));
+            outline: none;
+            resize: none;
+            background-color: antiquewhite;
+            margin: var(--margin);
+            padding: 5px;
+            border: none;
+        }
+    </style>
 </head>
+
 <body>
-    <h1><%-title%></h1>
+    <h1>
+        <%-title%>ejs
+    </h1>
+    <button id="send">发送</button>
+    <div class="container">
+        <textarea type="text" name="content" id="content"></textarea>
+        <textarea type="text" name="json" id="json"></textarea>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            let content = document.getElementById('content');
+            content.oninput = function (msg) {
+                //格式化
+                let str = JSON.stringify(content.value, null, "\t");
+                document.getElementById('json').value = str;
+            }
+        }
+    </script>
 </body>
+
 </html>

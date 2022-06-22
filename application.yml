@@ -3,8 +3,12 @@ server:
   port: 9090
 
 rabbitmq:
-  host:
-  port:
+  protocol: 'amqp'
+  hostname: '192.168.182.75'
+  port: 5672
+  username: '1900'
+  password: '123456'
+  vhost: '/1900'
 
 crypto:
   # 秘钥
